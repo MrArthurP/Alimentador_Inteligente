@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Controle do LED</title>
+</head>
+<body>
+    <h1>Controle do LED</h1>
+    <form id="ledForm" action="/led" method="POST">
+        <button type="button" name="action" value="ligar" onclick="ligarLED()">Ligar Motor</button>
+        <button type="button" name="action" value="desligar" onclick="desligarLED()">Desligar Motor</button>
+    </form>
+
+    <script>
+        function ligarLED() {
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", "/led");
+            xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+            xhr.send("action=ligar");
+        }
+
+        function desligarLED() {
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", "/led");
+            xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+            xhr.send("action=desligar");
+        }
+    </script>
+    
+</body>
+</html>
