@@ -1,4 +1,6 @@
-from django.shortcuts import render
+# Protege a ação com cookies
+from django.views.decorators.csrf import csrf_protect
+
 
 # controle/views.py
 from django.shortcuts import render
@@ -7,9 +9,11 @@ import requests
 
 NODEMCU_IP = "192.168.50.1"
 
+@csrf_protect
 def index(request):
     return render(request, 'controle/index.html')
 
+@csrf_protect
 def control_led(request):
     if request.method == "POST":
         action = request.POST.get("action")

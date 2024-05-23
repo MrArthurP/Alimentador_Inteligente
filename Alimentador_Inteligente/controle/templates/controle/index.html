@@ -7,7 +7,9 @@
 <body>
     <h1>Controle LED</h1>
     <form method="POST" action="/led/">
+        {% csrf_token %}
         <button type="submit" name="action" value="ligar">Ligar LED</button>
+        {% csrf_token %}
         <button type="submit" name="action" value="desligar">Desligar LED</button>
     </form>
 </body>
